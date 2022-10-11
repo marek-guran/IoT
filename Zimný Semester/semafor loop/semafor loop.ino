@@ -17,37 +17,57 @@ void setup() {
 void loop() {
   button_state = digitalRead(BUTTON_PIN);
   if (button_state == LOW) {
+    delay(2000);
     pocitadlo++;
+    Serial.print("Zmena hodnoty pocitadla na = ");
+    Serial.println(pocitadlo);
+    return;
   }
 
   if (pocitadlo == 3) {
-    pocitadlo = 1;
+    delay(2000);
+    pocitadlo--;
+    pocitadlo--;
+    Serial.print("Zmena hodnoty pocitadla na = ");
+    Serial.println(pocitadlo);
+    return;
   }
 
-  while (pocitadlo == 1) {
-    digitalWrite(LED_PIN0, HIGH);
-    digitalWrite(LED_PIN1, LOW);
-    digitalWrite(LED_PIN2, LOW);
-    delay(5000);
-    digitalWrite(LED_PIN1, HIGH);
-    delay(2000);
-    digitalWrite(LED_PIN0, LOW);
-    digitalWrite(LED_PIN1, LOW);
-    digitalWrite(LED_PIN2, HIGH);
-    delay(5000);
-    digitalWrite(LED_PIN2, LOW);
-    digitalWrite(LED_PIN1, HIGH);
-    delay(2000);
+  if (pocitadlo > 3) {
+    pocitadlo = 1;
+    Serial.print("Zmena hodnoty pocitadla na = ");
+    Serial.println(pocitadlo);
     return;
   }
 
   while (pocitadlo == 2) {
+    digitalWrite(LED_PIN0, HIGH);
+    digitalWrite(LED_PIN1, LOW);
+    digitalWrite(LED_PIN2, LOW);
+    delay(500);
+    digitalWrite(LED_PIN1, HIGH);
+    delay(200);
+    digitalWrite(LED_PIN0, LOW);
+    digitalWrite(LED_PIN1, LOW);
+    digitalWrite(LED_PIN2, HIGH);
+    delay(500);
+    digitalWrite(LED_PIN2, LOW);
+    digitalWrite(LED_PIN1, HIGH);
+    delay(200);
+    Serial.print("Semafor zapnuty, hodnota pocitadla = ");
+    Serial.println(pocitadlo);
+    return;
+  }
+
+  while (pocitadlo == 1) {
     digitalWrite(LED_PIN0, LOW);
     digitalWrite(LED_PIN1, HIGH);
     digitalWrite(LED_PIN2, LOW);
     delay(2000);
     digitalWrite(LED_PIN1, LOW);
     delay(2000);
+    Serial.print("Semafor vypnuty, hodnota pocitadla = ");
+    Serial.println(pocitadlo);
     return;
   }
 }
