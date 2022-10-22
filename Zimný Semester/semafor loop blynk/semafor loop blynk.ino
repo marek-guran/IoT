@@ -8,8 +8,8 @@
 #define BLYNK_AUTH_TOKEN "A_KYKcdv84n6BwS8EhcHQv-88iLdfzWn"
 
 char auth[] = "A_KYKcdv84n6BwS8EhcHQv-88iLdfzWn";
-char ssid[] = "Guranova";
-char pass[] = "18rokovAkrokov8";
+char ssid[] = "";
+char pass[] = "";
 
 int LED_PIN0 = 22;  //červená
 int LED_PIN1 = 21;  //žltá
